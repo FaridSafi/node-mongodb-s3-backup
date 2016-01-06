@@ -1,5 +1,6 @@
 'use strict';
 
+
 var exec = require('child_process').exec
   , spawn = require('child_process').spawn
   , path = require('path')
@@ -24,7 +25,8 @@ function log(message, tag) {
   tags = {
     error: color.red.bold,
     warn: color.yellow,
-    info: color.cyanBright
+    info: color.cyanBright,
+    mongodump: color.green,
   };
 
   currentTag = tags[tag] || function(str) { return str; };
@@ -111,7 +113,7 @@ function mongoDump(options, directory, callback) {
   });
 
   mongodump.stderr.on('data', function (data) {
-    log(data, 'error');
+    log(data, 'mongodump');
   });
 
   mongodump.on('exit', function (code) {

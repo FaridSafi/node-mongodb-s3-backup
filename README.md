@@ -16,7 +16,7 @@ The file should have the following format:
 
     {
       "mongodb": {
-        "host": "localhost",
+        "host": "127.0.0.1",
         "port": 27017,
         "username": false,
         "password": false,
